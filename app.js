@@ -1,7 +1,10 @@
 const express = require("express");
 const app = express();
-const data = require('./postBank')
 const morgan = require('morgan');
+const timeAgo = require('node-time-ago');
+const data = require('./postBank')
+//const postList = require('./views/postList');
+//const postDetails = require('./views/postDetails');
 
 app.use(morgan('dev'));
 
@@ -28,7 +31,7 @@ app.get("/", (req, res) => {
                   <small>(by ${post.name})</small>
                 </p>
                 <small class="news-info">
-                  ${post.upvotes} upvotes | ${post.date}
+                  ${post.upvotes} upvotes | ${ timeAgo(post.date)}
                 </small>
               </div>`
             ).join('')}
