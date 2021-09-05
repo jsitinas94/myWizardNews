@@ -106,7 +106,7 @@ app.use((error, req, res, next) => {
   
 })
 
-const PORT = 1337;
+const { PORT = 1337 } = process.env;
 
 app.listen(PORT, () => {
   console.log(`App listening in port ${PORT}`);
